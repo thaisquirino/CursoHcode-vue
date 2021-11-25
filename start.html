@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js Primeiro Exemplo</title>
+</head>
+<body>
+    <div  id="start">
+      <h1>{{message}}</h1> 
+
+
+    <!-- <script src="vue.js"></script>  versão classica-->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"> Versão CDN </script> -->
+    <!--npm ou yarn-->npm install -g @vue/cli
+    <script src="node_modules/vue/dist/vue.min.js"></script>
+
+   <script>
+          let app = new Vue ({
+          el:'#start',
+            data:{
+                message:'Hello world  estou usando vue!'
+            }
+
+        })
+    </script>
+</body>
+</html>
