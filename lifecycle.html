@@ -9,21 +9,37 @@
 <body>
     <div id="lifecycle">
         <h1>Hello {{name}}</h1>
+
+        <ul>
+            <li v-for="state in states">{{states.nome}}</li>
+        </ul>
  
      
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6"></script>
+
     <script>
         let app= new Vue ({
             el:'#lifecycle',
-            data:{
-                name:' Hcode Treinamentos'
+            data: {
+                name:'Hcode Treinamentos',
+                states:[]     
                },
                beforeCreate(){
                    console.log('beforeCreate');
                },
                created(){
-                console.log('created');     
+                 fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados')
+                 .then(response => {
+
+                     response.json().then(data =>{
+
+                         this.states = data;
+                     })
+
+                 }).catch(err => {
+                     console.log(err);
+                 })
                },
                beforeMount(){
                 console.log('beforeMount');   
