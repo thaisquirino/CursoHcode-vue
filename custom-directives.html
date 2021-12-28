@@ -13,6 +13,7 @@
     
          <h4 v-upper>{{name}}</h4>
          <h2 v-capitalize>hello word , thais  você é o maximo!</h2>
+         <h2 v-custom:parametro.mod1.mod2="'informação'">{{name}}</h2>
         
     </div>
      <script src="https://cdn.jsdelivr.net/npm/vue@2.6"></script>
@@ -25,7 +26,6 @@
                 inserted(el) {
                     el.innerText = el.innerText.toUpperCase();
                
-
                 }
             })
             let app= new Vue({
@@ -36,7 +36,13 @@
              },
               
                 directives:{
-                    capitalize:function(element){
+                    /* Funções para diretivas
+                    capitalize:{
+                        bind(element){
+                          console.log('BIND- Fui vinculado a um elemento ');
+                        },
+                         inserted(element){
+                             console.log('Inserted-O elemento foi inserido na pagina');
 
                    let words =element.innerText.split('');
                    words.forEach((text,index) => {
@@ -45,13 +51,34 @@
 
                    });
                    element.innerText=words.join('');
+                 },
+                 update(element){
+                     console.log('update- o  elemento foi atualizado');
+                 },
+                 unbind(element){
+                 console.log ('Unbind- O lemento  foi  desvinculado');
+                 },
+                 componetUpdated(element){
+                     console.log('Component-O componente  foi atualizado');
+                 },
+                 */
+                 custom:{
+                     inserted(element,binding,vnode){
+                        // console.log(vnode);
+                         element.style.color='red';
+                     },
+                     update(element,binding,vnode,oldnode){
+                         console.log(vnode, oldnode);
+                         element.style.textDecoration='underline';
+
+                     }
 
                  }
-             }
+                
          
-         })
-            
-               
+              }
+
+           })
         
     </script>
 </body>
