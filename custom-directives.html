@@ -14,7 +14,7 @@
          <h4 v-upper>{{name}}</h4>
          <h2 v-capitalize>hello word , thais  você é o maximo!</h2>
          <!-- <h2 v-custom:parametro.mod1.mod2="'informação'">{{name}}</h2> -->
-         <h2 v-custom:[argumento]="distance">{{name}}</h2>
+         <h2 v-custom="{direction:argumento,distance}">{{name}}</h2>
         
     </div>
      <script src="https://cdn.jsdelivr.net/npm/vue@2.6"></script>
@@ -33,8 +33,8 @@
                 
                 element.style.margin=0;
                  
-                let direction=binding.arg.toLowerCase();
-                 let value=binding.value;
+                let direction=binding.value.direction.toLowerCase();
+                 let value=binding.value.distance;
 
                 switch (direction){
                     case'left':
