@@ -1,23 +1,17 @@
 
-
     <!DOCTYPE html>
     <html lang="en">
      <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Estilos em Linha -Objetos(Multiplos valores)</title>
+    <title> Estilos em Linha Array</title>
     </head>
      <body>
          
          <div id="styles">
-
-            <div :style="{display:displayStyle}">
-             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod laudantium eos eaque. 
-             Non, illum! Sequi esse tempora minus optio quae, consectetur
-              at nostrum magnam veniam asperiores enim necessitatibus voluptate doloremque!
-         </div>
-        
+         <a href="https://www.hcode.com.br/" :style="[fontSizeStyle,colorStyle,linkStyle]">Hcode Treinamentos </a>
+         
      </div>
      <script src="https://cdn.jsdelivr.net/npm/vue@2.6"></script>
 
@@ -27,7 +21,15 @@
             let app= new Vue({
              el:'#styles',
              data:{
-                 displayStyle:['-webkit-box', '-moz-box-flex', '-ms-flebox']
+                 fontSizeStyle:{
+                   fontSize:'30px'  
+                 },
+                 colorStyle:{
+                     color:'red'
+                 },
+                 linkStyle:{
+                     textDecoration:'none'
+                 }
                    
            }
        })
