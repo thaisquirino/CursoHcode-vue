@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/thaisquirino/CursoHcode-vue#readme",
   "dependencies": {
+    "animate.css": "^4.1.1",
     "bootstrap": "4.0.0"
   }
 }
