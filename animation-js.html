@@ -1,0 +1,83 @@
+
+
+<!DOCTYPE html>
+ <html lang="en">
+    <head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Animation js</title>
+    <link rel="stylesheet"  href="node_modules/animate.css/animate.min.css">
+    </head>
+    <body>
+
+         <div id="transitions">
+
+          <transition
+            name="animation-first"
+            @before-enter="beforeEnter"
+            @enter="enter"
+            @afterEnter="afterEnter"
+            @enterCancelled="enterCancelled"
+
+            @before-leave="beforeLeave"
+            @leave="leave"
+            @after-leave="afterleave"
+            @leave-cancelled="leaveCancelled"
+
+            >
+
+            <h1 v-if="show"> Animações Thaís Quirino</h1>
+          </transition>
+
+            <button @click="show = !show">Realizar animação</button>
+
+        </div>
+
+
+
+     <script src="https://cdn.jsdelivr.net/npm/vue@2.6"></script>
+
+                 
+     <script>
+
+            let app= new Vue({
+             el:'#transitions',
+             data: {
+                show:true
+             },
+             methods:{
+                 beforeEnter(){
+                     console.log('beforeEnter');
+                 },
+                 enter(){
+                   console.log('enter');
+                 },
+                 afterEnter(element){
+                  console.log('afterEnter',element);
+
+                  document.querySelector('h1').style.backgroundColor ='#ccc';
+                  document.querySelector ('h1').style.color='red';
+                 },
+                 enterCancelled(){
+                   console.log('enterCancelled');
+                 },
+                 beforeLeave(){
+                   console.log('beforeLeave');
+                 },
+                 leave(){
+                   console.log('leave');
+                 },
+                 afterLeave(){
+                   console.log('afterLeave')
+                   alert('Elemento foi  oculto');
+                 },
+                 leaveCancelled(){
+                  console.log('leaveCancelled');
+                 }
+             }
+       })
+        
+    </script>
+</body>
+</html>
