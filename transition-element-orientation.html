@@ -1,0 +1,65 @@
+
+
+<!DOCTYPE html>
+ <html lang="en">
+    <head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>  Animações CSS - Transitiom element</title>
+    <link rel="stylesheet"  href="node_modules/animate.css/animate.min.css">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <style>
+        .fade-transition-enter_active, .fade-transition-leave-active {
+            transition:opacity .3s ease-in-out;
+        }
+        .fade-transition-enter, .fade-transition-leave-to{
+            opacity:0;
+        }
+    </style>
+</head>
+    <body>
+
+         <div id="transitions">
+
+            <h1> Animações Thaís Quirino</h1>
+         
+            <!--Duração  Fixa 
+             <transition
+             name="animation-first"
+             :duration= "800"
+             enter-active-class="bounceIn"
+             leave-active-class="bounceOut"
+             >
+             <h2 v-if=" show ">Thaís continue você esta no caminho correto!</h2>
+            -->
+               
+            <input type ="text" v-model="name">
+
+              <transition
+                name="fade-transition"
+                modo="out-in"
+             >
+             <h3 v-if="name.length > 10 " key="sucess" class="alert-sucess">Nome Válido</h3>
+             <h4 v-else key="error" class="alert-danger"> Nome incorreto</h4> 
+          </transition>
+
+        </div>
+
+
+
+     <script src="https://cdn.jsdelivr.net/npm/vue@2.6"></script>
+
+                 
+     <script>
+
+            let app= new Vue({
+             el:'#transitions',
+             data: {
+                 name:'Thaís Quirino'
+             }
+       })
+        
+    </script>
+</body>
+</html>
