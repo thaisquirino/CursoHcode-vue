@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+ <html lang="en">
+    <head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>  Eventos -Modificadores</title>
+    
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+</head>
+    <body>
+
+         <div id="events">
+
+           <h4> Formulario Thaís Quirino</h4>
+
+             <div class="container">
+
+               <form action="" class="form" v-on:submit.prevent>
+                   <div class="row">
+
+                       <div class="col">
+                           <div class="form-group">
+
+                               <label for="">Nome</label>
+                               <input type="text" class="form-control" name="username" placeholder="Digite seu nome" v-on:keyup.enter="send($event)">
+                            </div>
+
+                       </div>
+                       
+                    </div>
+                 <div class="form-gorup">
+                     <label>Pressione as teclas abaixo</label> 
+
+                     <input type="text" class="form-control"placeholder="Pressione Enter" @Keyup.enter="exec">
+
+                     <input type="text" class="form-control"placeholder="Pressione Tab" @Keydown.tab="exec">
+                     <input type="text" class="form-control"placeholder="Pressione Delete" @Keyup.delete="exec">
+                     <input type="text" class="form-control"placeholder="Pressione Esc" @Keyup.esc="exec">
+                     <input type="text" class="form-control"placeholder="Pressione Space" @Keyup.space="exec">
+                     <input type="text" class="form-control"placeholder="Pressione Up" @Keyup.up="exec">
+                     <input type="text" class="form-control"placeholder="Pressione Down" @Keyup.down="exec">
+                     <input type="text" class="form-control"placeholder="Pressione Left" @Keyup.left="exec">
+                     <input type="text" class="form-control"placeholder="Pressione Right" @Keyup.right="exec">
+                     
+
+
+                 </div>
+
+
+                </div>
+                    
+               </form> 
+           
+             </div>
+           
+        </div>
+
+
+
+     <script src="https://cdn.jsdelivr.net/npm/vue@2.6"></script>
+
+                 
+     <script>
+
+            let app= new Vue({
+             el:'#events',
+             data: {
+                 
+             },
+             methods:{
+               send(event){
+
+                let form =event.target.form;
+
+                let data=new FormData(form);
+
+                for(let value of data.entries()){
+                    console.log(value);
+                    console.log(`${value[0]}: ${value [1]} `);
+                }
+                
+               },
+               exec(e){
+                   console.log(e.key);
+               }
+             }
+       })
+        
+    </script>
+</body>
+</html>
