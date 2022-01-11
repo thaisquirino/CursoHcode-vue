@@ -13,22 +13,10 @@
 
          <div id="events">
 
-           <h4> Formulario Thaís Quirino</h4>
+           <h4> Modificadores .exact </h4>
 
-             <div class="container">
-
-               <form action="" class="form" v-on:submit.prevent>
-                   <div class="row">
-
-                       <div class="col">
-                           <div class="form-group">
-
-                               <label for="">Nome</label>
-                               <input type="text" class="form-control" name="username" placeholder="Digite seu nome" v-on:keyup.enter="send($event)">
-                            </div>
-
-                       </div>
-                       
+              <hr>  
+              <br> 
                     </div>
                  <div class="form-gorup">
                      <label>Pressione as teclas abaixo</label> 
@@ -40,15 +28,29 @@
                      
         
                  </div>
-
-
-                </div>
-                    
                </form> 
+ 
+               <hr>
+
+               <div class="row">
+                   <div class="col"@click.ctrl.exact="toggleClass" >
+                     1
+                   </div>
+
+                   <div class="col" @click.ctrl.exact="toggleClass">
+                    2
+                   </div>
+                  <div class="col" @click.ctrl.exact="toggleClass">
+                   3
+                  </div>
+                <div class="col"@click.ctrl.exact="toggleClass">
+                    4
+                    </div>
+
+               </div>
            
              </div>
-           
-        </div>
+        
 
 
 
@@ -67,8 +69,19 @@
                exec(e){
                    console.log(e.key);
                },
-             }
-       })
+               toggleClass(event){
+
+                let el=event.target;
+
+                let method=(el.classList.contains('bg-info'))?
+                'remove' : 'add';
+
+    
+                eval(`el.classList.${method}('bg-info')`);
+
+                }
+            }
+        })
         
     </script>
 </body>
