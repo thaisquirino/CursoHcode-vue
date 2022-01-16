@@ -5,7 +5,7 @@
      <meta charset="UTF-8">
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>  Componentes-Global </title>
+    <title>  Componentes-Local </title>
     
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
 </head>
@@ -15,14 +15,12 @@
 
              <div class="container">
              <text-render text="Hcode Treinamentos"></text-render>
-             <text-render  text="Sejam bem-vindos!"></text-render>
-             <text-render text="Olá Mundo !"></text-render>
-             <text-render></text-render>
+             
                  
              </div>
            
              <hr>
-             <list-component></list-component>
+             <list></list>
              
          </div>
         
@@ -39,7 +37,8 @@
                 </div> `
             });
 
-            Vue.component('list-component',{
+          /* Componente Global
+          Vue.component('list-component',{
                 template:`
                     <ul>
                     <li v-for="person in names">{{person}}</li>    
@@ -54,10 +53,37 @@
                 }
 
             })
+            */
+            let listItemComponent={
+                props:['name'],
+                template: ' <li>{{person}}</li>' 
+                
+            }
+            let listComponent={
+                 template:`<ul>
+                    <list-item v-for="person in names" v-bind:name="person"> </list-item>
+                    </ul> 
+                 `,
+           
+                data:function(){
+                    return {
+                        names:['Thais Quirino','Jesus Cristo ', 'Fernando Minas']
+
+                    }
+                },
+                components:{
+                    listItem:listItemComponent
+                }
+
+            }
+
             let app= new Vue({
              el:'#components',
                  data:{
-               
+            },
+            components:{
+                list:listComponent
+
             }
         })
         
